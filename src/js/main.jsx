@@ -8,7 +8,7 @@ import { Provider } from 'react-redux'
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import App from './component/App'
+import App from './container/App'
 import reducer from './reducer'
 
 import '../css/main.styl'

@@ -7,7 +7,7 @@ const webpack = require('webpack')
 
 const common = require('./webpack.config.common.js')
 
-module.exports = merge(common, {
+module.exports = merge(common('development'), {
   devtool: 'source-map',
   devServer: {
     contentBase: path.resolve(__dirname, 'dist'),
