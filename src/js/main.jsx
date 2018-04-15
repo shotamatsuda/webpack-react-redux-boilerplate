@@ -1,8 +1,6 @@
 // The MIT License
 // Copyright (C) 2017-Present Shota Matsuda
 
-import 'babel-polyfill'
-
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import React from 'react'
