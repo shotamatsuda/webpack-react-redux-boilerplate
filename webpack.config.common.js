@@ -72,23 +72,30 @@ module.exports = mode => ({
               minimize: mode === 'production',
               sourceMap: true
             }
+          },
+          {
+            loader: 'postcss-loader',
+            options: { sourceMap: true }
           }
         ]
       },
       {
-        test: /\.styl$/,
+        test: /\.scss$/,
         use: [
           mode === 'production' ? MiniCssExtractPlugin.loader : 'style-loader',
           {
             loader: 'css-loader',
-            options: { sourceMap: true }
+            options: {
+              minimize: mode === 'production',
+              sourceMap: true
+            }
           },
           {
             loader: 'postcss-loader',
             options: { sourceMap: true }
           },
           {
-            loader: 'stylus-loader',
+            loader: 'sass-loader',
             options: { sourceMap: true }
           }
         ]

@@ -11,7 +11,7 @@ import ReactDOM from 'react-dom'
 import App from './container/App'
 import reducer from './reducer'
 
-import '../css/main.styl'
+import '../css/main.scss'
 
 const store = createStore(reducer)
 
