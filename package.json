@@ -1,6 +1,6 @@
 {
   "name": "webpack-react-redux-boilerplate",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "",
   "repository": "",
   "author": "Shota Matsuda",
@@ -10,7 +10,7 @@
     "start": "webpack-dev-server --config webpack.config.development.js",
     "build": "webpack --config webpack.config.production.js",
     "lint": "standard -v src/**/*.js src/**/*.jsx",
-    "lint:fix": "standard --fix src/**/*.js src/**/*.jsx"
+    "lint-fix": "standard -v --fix src/**/*.js src/**/*.jsx"
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
