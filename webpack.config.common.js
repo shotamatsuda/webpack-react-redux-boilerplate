@@ -11,7 +11,7 @@ module.exports = mode => ({
   entry: {
     main: [
       'babel-polyfill',
-      path.resolve(__dirname, 'src', 'js', 'main.jsx')
+      path.resolve(__dirname, 'src/js/main.jsx')
     ]
   },
   output: {
@@ -112,7 +112,7 @@ module.exports = mode => ({
       chunkFilename: '[id].css'
     }),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'src', 'index.html')
+      template: path.resolve(__dirname, 'src/index.html')
     })
   ]
 })
