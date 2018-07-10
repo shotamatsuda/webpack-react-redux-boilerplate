@@ -2,56 +2,28 @@
 // Copyright (C) 2017-Present Shota Matsuda
 
 import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
-import React, { PureComponent } from 'react'
 
-import * as actions from '../actions'
+import { incrementSync, incrementAsync } from '../actions'
+import App from '../component/App'
 
-class App extends PureComponent {
-  constructor (props) {
-    super(props)
-    this.onSyncButtonClick = this.onSyncButtonClick.bind(this)
-    this.onAsyncButtonClick = this.onAsyncButtonClick.bind(this)
-  }
-
-  onSyncButtonClick (event) {
-    this.props.incrementSync()
-  }
-
-  onAsyncButtonClick (event) {
-    this.props.incrementAsync()
-  }
-
-  render () {
-    return (
-      <div>
-        <div>
-          <h3>Sync Action</h3>
-          <button onClick={this.onSyncButtonClick}>
-            Dispatch
-          </button> {this.props.syncCount}
-        </div>
-        <div>
-          <h3>Async Action</h3>
-          <button onClick={this.onAsyncButtonClick}>
-            Dispatch
-          </button> {this.props.asyncCount} / {this.props.asyncRequests}
-        </div>
-      </div>
-    )
-  }
-}
-
-App.propTypes = {
-  syncCount: PropTypes.number.isRequired,
-  asyncRequests: PropTypes.number.isRequired,
-  asyncCount: PropTypes.number.isRequired,
-}
-
-function mapStateToProps(state) {
+function mapStateToProps (state, ownProps) {
   return {
-    ...state,
+    syncCount: state.syncCount,
+    asyncRequests: state.asyncRequests,
+    asyncCount: state.asyncCount
   }
 }
 
-export default connect(mapStateToProps, actions)(App)
+function mapDispatchToProps (dispatch, ownProps) {
+  return {
+    onSyncButtonClick () {
+      dispatch(incrementSync())
+    },
+
+    onAsyncButtonClick () {
+      dispatch(incrementAsync())
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
