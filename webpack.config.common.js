@@ -11,7 +11,7 @@ module.exports = mode => ({
   entry: {
     main: [
       'babel-polyfill',
-      path.resolve(__dirname, 'src/js/main.jsx')
+      path.resolve(__dirname, 'src/main.jsx')
     ]
   },
   output: {
