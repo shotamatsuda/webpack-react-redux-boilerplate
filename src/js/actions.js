@@ -1,21 +1,25 @@
 // The MIT License
 // Copyright (C) 2017-Present Shota Matsuda
 
+export const INCREMENT = 'INCREMENT'
+export const WILL_INCREMENT = 'WILL_INCREMENT'
+export const DID_INCREMENT = 'DID_INCREMENT'
+
 export function incrementSync () {
   return {
-    type: 'INCREMENT_SYNC'
+    type: INCREMENT
   }
 }
 
 export function incrementAsync () {
-  return dispatch => {
+  return async dispatch => {
     dispatch({
-      type: 'BEGIN_INCREMENT_ASYNC'
+      type: WILL_INCREMENT
     })
-    setTimeout(() => {
-      dispatch({
-        type: 'END_INCREMENT_ASYNC'
-      })
-    }, 1000 * Math.random())
+    const delay = 1000 * Math.random()
+    await new Promise(resolve => setTimeout(resolve, delay))
+    dispatch({
+      type: DID_INCREMENT
+    })
   }
 }
