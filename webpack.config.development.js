@@ -1,13 +1,13 @@
-// The MIT License
+// MIT License
 // Copyright (C) 2017-Present Shota Matsuda
 
 const merge = require('webpack-merge')
 const path = require('path')
 const webpack = require('webpack')
 
-const common = require('./webpack.config.common.js')
+const config = require('./webpack.config.js')
 
-module.exports = merge(common('development'), {
+module.exports = merge(config('development'), {
   devtool: 'source-map',
   devServer: {
     contentBase: path.resolve(__dirname, 'dist'),

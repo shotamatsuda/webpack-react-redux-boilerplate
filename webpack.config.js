@@ -1,4 +1,4 @@
-// The MIT License
+// MIT License
 // Copyright (C) 2017-Present Shota Matsuda
 
 const CleanWebpackPlugin = require('clean-webpack-plugin')
@@ -9,9 +9,9 @@ const path = require('path')
 module.exports = mode => ({
   mode,
   entry: {
-    main: [
-      'babel-polyfill',
-      path.resolve(__dirname, 'src/main.jsx')
+    index: [
+      '@babel/polyfill',
+      path.resolve(__dirname, 'src/index.jsx')
     ]
   },
   output: {
@@ -28,37 +28,11 @@ module.exports = mode => ({
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         use: [
           {
-            loader: 'babel-loader',
-            options: {
-              presets: [
-                'es2016',
-                'es2017',
-                'stage-3',
-                'stage-2'
-              ]
-            }
-          }
-        ]
-      },
-      {
-        test: /\.jsx$/,
-        exclude: /node_modules/,
-        use: [
-          {
-            loader: 'babel-loader',
-            options: {
-              presets: [
-                'es2016',
-                'es2017',
-                'stage-3',
-                'stage-2',
-                'react'
-              ]
-            }
+            loader: 'babel-loader'
           }
         ]
       },

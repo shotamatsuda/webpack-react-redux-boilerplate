@@ -1,12 +1,12 @@
-// The MIT License
+// MIT License
 // Copyright (C) 2017-Present Shota Matsuda
 
 const merge = require('webpack-merge')
 const webpack = require('webpack')
 
-const common = require('./webpack.config.common.js')
+const config = require('./webpack.config.js')
 
-module.exports = merge(common('production'), {
+module.exports = merge(config('production'), {
   optimization: {
     minimize: true
   },

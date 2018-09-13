@@ -1,4 +1,4 @@
-// The MIT License
+// MIT License
 // Copyright (C) 2017-Present Shota Matsuda
 
 import { createStore, applyMiddleware } from 'redux'
@@ -10,7 +10,7 @@ import thunk from 'redux-thunk'
 import App from './container/App'
 import reducer from './reducer'
 
-import './main.scss'
+import './index.scss'
 
 const store = createStore(
   reducer,
